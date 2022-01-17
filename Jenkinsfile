@@ -118,7 +118,7 @@ pipeline {
                                 sourceFiles: "docker-compose-gateway-dev.yml",
                             ),
                             sshTransfer(execCommand: "docker service rm alarm_alarm-gateway"),
-                            sshTransfer(execCommand: "docker stack deploy --compose-file /home/mysend/alarm/docker-compose-gateway.yml -c /home/mysend/alarm/docker-compose-gateway-dev.yml alarm"),
+                            sshTransfer(execCommand: "docker stack deploy --compose-file /home/mysend/alarm-service/docker-compose-gateway.yml -c /home/mysend/alarm-service/docker-compose-gateway-dev.yml alarm"),
                             sshTransfer(execCommand: "docker image prune -f")
                         ]
                     )
