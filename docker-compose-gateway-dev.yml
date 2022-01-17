@@ -1,0 +1,9 @@
+version: '3.9'
+services:
+  alarm-gateway:
+    ports:
+      - 8080:8080
+    environment:
+      - SPRING_PROFILES_ACTIVE=dev
+#    volumes:
+#      - /home/alarm/api/config/application-dev.yml:/application/BOOT-INF/classes/application-dev.yml

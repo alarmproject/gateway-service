@@ -1,0 +1,14 @@
+version: "3.9"
+services:
+  alarm-gateway:
+    image: rlabotjd/mysend:latest-alarm-gateway
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+    environment:
+      - TZ=Asia/Seoul
+    deploy:
+      mode: replicated
+      replicas: 1
+      restart_policy:
+        delay: 60s
+        window: 120s
