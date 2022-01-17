@@ -1,0 +1,4 @@
+eureka:
+  client:
+    service-url:
+      defaultZon: http://dev.mysend.co.kr:8761/eureka
