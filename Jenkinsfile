@@ -117,6 +117,8 @@ pipeline {
                             sshTransfer(
                                 sourceFiles: "docker-compose-gateway-dev.yml",
                             ),
+                            sshTransfer(execCommand: "docker login -u rlabotjd -p 251fcc1f-8ec9-4b0a-b440-c97a95a68e9e"),
+                            sshTransfer(execCommand: "docker pull rlabotjd/mysend:latest-alarm-gateway"),
                             sshTransfer(execCommand: "docker service rm alarm_alarm-gateway"),
                             sshTransfer(execCommand: "docker stack deploy --compose-file /home/ec2-user/alarm-service/docker-compose-gateway.yml -c /home/ec2-user/alarm-service/docker-compose-gateway-dev.yml alarm"),
                             sshTransfer(execCommand: "docker image prune -f")
