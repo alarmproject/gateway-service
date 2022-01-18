@@ -16,13 +16,13 @@ public class FilterConfig {
                                 .addRequestHeader("gateway-request", "dev-user-request")
                                 .addRequestHeader("gateway-response", "dev-user-response")
                                 .rewritePath("/dev/api/user/(?<segment>.*)", "/$\\{segment}")
-                        ).uri("lb://DEV-USER-SERVICE")
-                ).route(route -> route.path("/live/api/user/**")
-                        .filters(filter ->filter
-                                .addRequestHeader("gateway-request", "live-user-request")
-                                .addRequestHeader("gateway-response", "live-user-response")
-                                .rewritePath("/live/api/user/(?<segment>.*)", "/$\\{segment}")
-                        ).uri("lb://LIVE-USER-SERVICE")
+                        ).uri("http://mysend.co.kr:7000/")
+//                ).route(route -> route.path("/live/api/user/**")
+//                        .filters(filter ->filter
+//                                .addRequestHeader("gateway-request", "live-user-request")
+//                                .addRequestHeader("gateway-response", "live-user-response")
+//                                .rewritePath("/live/api/user/(?<segment>.*)", "/$\\{segment}")
+//                        ).uri("lb://LIVE-USER-SERVICE")
                 ).build();
     }
 
