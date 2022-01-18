@@ -1,15 +1,3 @@
-server:
-  port: 8080
-
-eureka:
-  client:
-    register-with-eureka: true
-    fetch-registry: true
-    service-url:
-      defaultZon: http://mysend.co.kr:8761/eureka
-  instance:
-    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
-
 spring:
   application:
     name: gateway-service
@@ -23,8 +11,7 @@ spring:
             postLogger: true
       routes:
         - id: dev-user-service
-#          uri: lb://DEV-USER-SERVICE
-          uri: http://dev.mysend.co.kr:7000/
+          uri: http://localhost:7000/
           predicates:
             - Path=/dev/api/user/**
           filters:
@@ -34,9 +21,9 @@ spring:
                 baseMessage: Hi, LoggingFilter
                 preLogger: true
                 postLogger: true
-        - id: live-user-service
-          uri: lb://LIVE-USER-SERVICE
-          predicates:
-            - Path=/live/api/user/**
-          filters:
-            - CustomFilter
+#        - id: live-user-service
+#          uri: lb://LIVE-USER-SERVICE
+#          predicates:
+#            - Path=/live/api/user/**
+#          filters:
+#            - CustomFilter
