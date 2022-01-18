@@ -23,7 +23,8 @@ spring:
             postLogger: true
       routes:
         - id: dev-user-service
-          uri: lb://DEV-USER-SERVICE
+#          uri: lb://DEV-USER-SERVICE
+          uri: http://dev.mysend.co.kr:7000/
           predicates:
             - Path=/dev/api/user/**
           filters:
