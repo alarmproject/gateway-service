@@ -18,18 +18,18 @@ public class FilterConfig {
                                 .addRequestHeader(FilterConfigEnum.GATEWAY_RESPONSE.getValue(), "dev-user-response")
                                 .rewritePath("/api/user/(?<segment>.*)", FilterConfigEnum.REPLACEMENT.getValue())
                         ).uri(FilterConfigEnum.URI.getValue() + ":7000/")
-                ).route(route -> route.path("/api/image/**")
+                ).route(route -> route.path("/image/**")
                                 .filters(filter ->filter
                                         .addRequestHeader(FilterConfigEnum.GATEWAY_REQUEST.getValue(), "dev-image-request")
                                         .addRequestHeader(FilterConfigEnum.GATEWAY_RESPONSE.getValue(), "dev-image-response")
-                                        .rewritePath("/api/image/(?<segment>.*)", FilterConfigEnum.REPLACEMENT.getValue())
+                                        .rewritePath("/image/(?<segment>.*)", FilterConfigEnum.REPLACEMENT.getValue())
                                 ).uri(FilterConfigEnum.URI.getValue() + ":7001/")
-//                ).route(route -> route.path("/live/api/user/**")
-//                        .filters(filter ->filter
-//                                .addRequestHeader("gateway-request", "live-user-request")
-//                                .addRequestHeader("gateway-response", "live-user-response")
-//                                .rewritePath("/live/api/user/(?<segment>.*)", "/$\\{segment}")
-//                        ).uri("lb://LIVE-USER-SERVICE")
+                ).route(route -> route.path("/api/calender/**")
+                                .filters(filter ->filter
+                                        .addRequestHeader(FilterConfigEnum.GATEWAY_REQUEST.getValue(), "dev-calender-request")
+                                        .addRequestHeader(FilterConfigEnum.GATEWAY_RESPONSE.getValue(), "dev-calender-response")
+                                        .rewritePath("/api/calender/(?<segment>.*)", FilterConfigEnum.REPLACEMENT.getValue())
+                                ).uri(FilterConfigEnum.URI.getValue() + ":7002/")
                 ).build();
     }
 
