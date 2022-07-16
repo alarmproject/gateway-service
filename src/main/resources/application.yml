@@ -12,3 +12,5 @@ spring:
             baseMessage: Spring Cloud Gateway Global Filter
             preLogger: true
             postLogger: true
+
+uri: http://dev.mysend.co.kr

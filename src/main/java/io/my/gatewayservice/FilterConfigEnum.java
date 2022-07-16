@@ -1,11 +1,11 @@
 package io.my.gatewayservice;
 
 import lombok.val;
+import org.springframework.beans.factory.annotation.Value;
 
 public enum FilterConfigEnum {
     GATEWAY_REQUEST("gateway-request"),
     GATEWAY_RESPONSE("gateway-response"),
-    URI("http://dev.mysend.co.kr"),
     REPLACEMENT("/$\\{segment}")
     ;
     private String value;
