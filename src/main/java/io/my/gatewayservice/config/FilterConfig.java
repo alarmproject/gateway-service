@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class FilterConfig {
 
-    @Value("uri")
+    @Value("${uri}")
     private String uri;
 
     @Bean
